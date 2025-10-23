@@ -1,0 +1,552 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #2ecc71; /* Яскраво-зелений */
+    --secondary-color: #2c3e50; /* Темно-сірий */
+    --background-color: #1a1a1a; /* Дуже темний фон */
+    --text-color: #ecf0f1; /* Світло-сірий текст */
+    --transition-speed: 0.8s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow: hidden; /* Ховаємо стандартну прокрутку */
+}
+
+.interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at center, rgba(46, 204, 113, 0.2), transparent 70%); /* Початковий градієнт */
+    background-size: 200% 200%; /* Збільшуємо розмір для анімації */
+    animation: gradientShift 15s ease infinite alternate; /* Нова анімація */
+    pointer-events: none; /* Запобігає блокуванню подій */
+}
+
+/* Нова анімація для фону */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+        transform: scale(1);
+    }
+    50% {
+        background-position: 100% 100%;
+        transform: scale(1.1);
+    }
+    100% {
+        background-position: 0% 0%;
+        transform: scale(1);
+    }
+}
+
+/* Приховуємо фон після 3-го слайда */
+.interactive-bg.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+
+.container {
+    height: 100vh;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.slide {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.content {
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide.active .content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+ul li::before {
+    content: '✔';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.pros-cons {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    gap: 40px;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    padding: 15px;
+    border: 1px solid var(--secondary-color);
+    background: rgba(44, 62, 80, 0.5);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.feedback-form button {
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #27ae60;
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.scroll-down-indicator span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+    transform: rotate(45deg);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+/* Стилі для зображень (з гарною рамкою) */
+.slide-image {
+    max-width: 70%; /* Зменшили, щоб рамка виглядала пропорційно */
+    height: auto;
+    margin-top: 25px;
+
+    /* --- Ось сама рамка --- */
+    border: 4px solid var(--primary-color); /* 1. Зовнішня зелена лінія */
+    padding: 6px; /* 2. Внутрішній відступ (створює другу рамку) */
+    background-color: var(--secondary-color); /* 3. Колір для внутрішнього відступу */
+    /* ------------------------ */
+
+    border-radius: 15px; /* Заокруглюємо все разом */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Більш виразна тінь */
+}
+/* === СТИЛІ ДЛЯ СЛАЙДУ "МЕНТОР" === */
+
+/* Контейнер для двох карток */
+.mentor-cards-container {
+    display: flex;
+    justify-content: space-around; /* Розмістить їх з проміжками */
+    gap: 20px; /* Проміжок між картками */
+    margin-top: 30px; /* Відступ від основного тексту */
+    width: 100%;
+}
+
+/* Сама "рамочка" / картка */
+.mentor-card {
+    flex: 1; /* Кожна картка займе однакову ширину */
+    background: var(--secondary-color); /* Темно-сірий фон (як у теми) */
+    border: 2px solid rgba(46, 204, 113, 0.3); /* Напівпрозора зелена рамка */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Вирівнюємо текст в картці по лівому краю */
+
+    /* Плавність для інтерактиву */
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* ІНТЕРАКТИВ при наведенні */
+.mentor-card:hover {
+    transform: translateY(-10px) scale(1.03); /* Ефект "підйому" */
+    border-color: var(--primary-color); /* Рамка стає яскраво-зеленою */
+    box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2); /* Зелена тінь */
+}
+
+/* Стилі для тексту всередині картки */
+.mentor-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+.mentor-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0; /* Прибираємо стандартний відступ <p> */
+}
+/* === СТИЛІ ДЛЯ СЛАЙДУ "МЕНТОР" - КАРТКИ З ФОТО === */
+
+/* Контейнер для двох карток з фото */
+.mentor-photos-container {
+    display: flex;
+    justify-content: center; /* Центруємо картки */
+    gap: 30px; /* Проміжок між картками */
+    margin-top: 40px; /* Відступ від основного тексту */
+    width: 100%;
+    flex-wrap: wrap; /* Дозволяє карткам переноситись на новий рядок на малих екранах */
+}
+
+/* Сама "рамочка" / картка для фото */
+.mentor-photo-card {
+    background: var(--secondary-color); /* Темно-сірий фон */
+    border: 3px solid rgba(46, 204, 113, 0.4); /* Напівпрозора зелена рамка */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-align: center; /* Центруємо текст та зображення */
+    width: 300px; /* Фіксована ширина картки */
+    max-width: 45%; /* Для адаптивності на малих екранах */
+
+    /* Плавність для інтерактиву */
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* ІНТЕРАКТИВ при наведенні */
+.mentor-photo-card:hover {
+    transform: translateY(-12px) scale(1.05); /* Ефект "підйому" і збільшення */
+    border-color: var(--primary-color); /* Рамка стає яскраво-зеленою */
+    box-shadow: 0 18px 35px rgba(46, 204, 113, 0.3); /* Більш виразна зелена тінь */
+}
+
+/* Стилі для зображення всередині картки */
+.mentor-img {
+    width: 150px; /* Розмір фото */
+    height: 150px; /* Розмір фото */
+    border-radius: 50%; /* Робимо фото круглим */
+    object-fit: cover; /* Обрізаємо, щоб фото заповнило коло */
+    border: 3px solid var(--primary-color); /* Зелена рамка навколо круглого фото */
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Стилі для заголовків та абзаців всередині картки */
+.mentor-photo-card h3 {
+    color: var(--text-color); /* Колір імені */
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.mentor-photo-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #bdc3c7; /* Трохи світліший сірий для опису */
+    margin-bottom: 0;
+}
+
+/* === СТИЛІ ДЛЯ СЛАЙДУ "МЕНТОР" З ДВОМА КОЛОНКАМИ ТА РОЗДІЛЮВАЧЕМ === */
+
+/* Контейнер для сітки з менторами */
+.mentors-grid {
+    display: flex; /* Використовуємо Flexbox для колонок */
+    justify-content: center; /* Центруємо вміст */
+    align-items: flex-start; /* Вирівнюємо колонки зверху */
+    gap: 30px; /* Проміжок між колонками та розділювачем */
+    margin-top: 40px;
+    width: 100%;
+    max-width: 900px; /* Обмежуємо ширину сітки */
+}
+
+/* Окрема колонка для ментора (містить картку) */
+.mentor-column {
+    flex: 1; /* Кожна колонка займе однакову доступну ширину */
+    display: flex;
+    justify-content: center; /* Центруємо картку всередині колонки */
+}
+
+/* Вертикальна зелена лінія-розділювач */
+.vertical-divider {
+    width: 2px;
+    background-color: var(--primary-color); /* Зелений колір */
+    height: 300px; /* Фіксована висота лінії */
+    align-self: center; /* Центруємо лінію по висоті відносно колонок */
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); /* М'яка зелена тінь */
+}
+
+/* Стилі для картки з фото (оновлені) */
+.mentor-photo-card {
+    background: var(--secondary-color);
+    border: 3px solid rgba(46, 204, 113, 0.4);
+    padding: 20px; /* Збільшив padding для більшої "рамки" */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 350px; /* Збільшив ширину картки */
+    max-width: 100%; /* Забезпечуємо адаптивність */
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.mentor-photo-card:hover {
+    transform: translateY(-12px) scale(1.03); /* Трохи менший scale, щоб не заходити за розділювач */
+    border-color: var(--primary-color);
+    box-shadow: 0 18px 35px rgba(46, 204, 113, 0.3);
+}
+
+/* Стилі для зображення всередині картки */
+.mentor-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Стилі для заголовків та абзаців всередині картки */
+.mentor-photo-card h3 {
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-size: 1.5rem; /* Трохи збільшив шрифт */
+    font-weight: 600;
+}
+
+.mentor-photo-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #bdc3c7;
+    margin-bottom: 0;
+}
+
+/* Стиль для логотипу на першому екрані */
+.logo-image {
+    width: 120px;  /* Ширина логотипу */
+    height: 120px; /* Висота логотипу */
+    border-radius: 50%; /* Робить його круглим. Приберіть, якщо лого квадратний. */
+    object-fit: cover; /* Гарно вписує зображення в коло */
+    margin-bottom: 20px; /* Відступ від заголовку H1 */
+
+    /* Рамка та тінь в стилі вашого сайту */
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+}
+/* === СТИЛІ ДЛЯ СЛАЙДУ "АНАЛІЗ ТЕХНОЛОГІЙ" (ТРИ КОЛОНКИ) === */
+
+.tech-columns-container {
+    display: flex;
+    justify-content: space-between; /* Рівномірно розподіляє колонки */
+    gap: 25px; /* Проміжок між колонками */
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1200px; /* Дозволяємо цьому слайду бути ширшим */
+}
+
+/* Стиль для окремої колонки */
+.tech-column {
+    flex: 1; /* Кожна колонка займає рівну частину простору */
+    background: rgba(44, 62, 80, 0.7); /* Напівпрозорий фон */
+    padding: 20px;
+    border-radius: 10px;
+    border-top: 4px solid var(--primary-color); /* Зелена верхня межа */
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    /* Ефект при наведенні */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-column:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
+}
+
+/* Логотип технології */
+.tech-logo {
+    display: block;
+    width: 70px; /* Розмір лого */
+    height: 70px;
+    object-fit: contain; /* Щоб лого не розтягувалося */
+    margin: 0 auto 15px auto; /* Центрування */
+}
+
+/* Заголовок колонки (Flask, FastAPI, Django) */
+.tech-column h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Заголовки "Плюси" і "Мінуси" */
+.tech-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+/* Стилі для списків */
+.tech-column ul {
+    padding-left: 20px; /* Повертаємо стандартні маркери списку */
+    list-style: disc;
+}
+
+.tech-column li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Окремі кольори для плюсів і мінусів */
+.tech-pros h4 {
+    color: var(--primary-color); /* Зелений */
+    border-bottom-color: var(--primary-color);
+}
+
+.tech-cons h4 {
+    color: #e74c3c; /* Червоний */
+    border-bottom-color: #e74c3c;
+}
+
+/* === СТИЛЬ ДЛЯ ІНТЕРАКТИВНОЇ КНОПКИ (ДИЗАЙН "ЗАЛИВКА") === */
+
+.cta-button-new {
+    display: inline-block;
+    position: relative;
+    padding: 18px 30px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden; /* Найважливіша частина для ефекту */
+
+    /* Стан кнопки ДО наведення */
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color); /* Зелений текст */
+
+    /* Плавність переходу */
+    transition: color 0.4s ease-in-out;
+}
+
+/* Елемент, який буде "заливати" кнопку */
+.cta-button-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color); /* Зелений фон */
+
+    /* Ховаємо його зліва за межами кнопки */
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: -1; /* Розміщуємо його ПІД текстом */
+}
+
+/* Текст кнопки */
+.cta-button-new span {
+    position: relative;
+    z-index: 2; /* Текст ЗАВЖДИ зверху */
+}
+
+/* ЕФЕКТ ПРИ НАВЕДЕННІ */
+.cta-button-new:hover {
+    color: var(--secondary-color); /* Текст стає темним */
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.5); /* Додаємо тінь */
+}
+
+.cta-button-new:hover::before {
+    transform: translateX(0); /* Елемент "виїжджає" і заливає кнопку */
+}

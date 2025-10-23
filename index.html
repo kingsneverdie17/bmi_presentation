@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проєкт BMI Calculator | Моя Історія</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="slide-nav">
+    <ul>
+    </ul>
+</nav>
+
+<div class="interactive-bg"></div>
+
+<div class="container">
+    <section class="slide active" data-name="Вітання">
+        <div class="content">
+
+            <img src="images/logo.jpg" alt="Логотип Health Cabinet" class="logo-image">
+            <h1>HEALTH CABINET</h1>
+            <p>Ласкаво просимо на презентацію мого проєкту. <br>Гортайте нижче, щоб дізнатися більше про мене та мою
+                роботу.</p>
+            <div class="scroll-down-indicator">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide" data-name="Про мене">
+        <div class="content">
+            <h2>Про мене</h2>
+            <p>Мене звати Максим, і я — початківець у світі веб-розробки та звичайний студент який навчається на
+                спеціальності Комп'ютерні науки. В цьому проекті я full-stack розробник який створив 3 проекти на 3
+                різних фреймворках та інтеграцією з телеграм ботом </p>
+            <img src="images/photo_2025-10-23_17-31-47.jpg" alt="Моє фото" class="slide-image">
+        </div>
+    </section>
+
+    <section class="slide" data-name="Мій шлях">
+        <div class="content">
+            <h2>Мій шлях до ІТ</h2>
+            <p>Мій інтерес до програмування зародився зі звичайної цікавості, яка швидко переросла у справжнє
+                захоплення. Я зрозумів, що хочу розвиватися саме в цій сфері, і почав шукати якісну освіту. Про академію
+                GoIT я дізнався від однокласниці яка на той момент закінчувала курс Front-end розробника та була
+                задоволенна освітою. </p>
+        </div>
+    </section>
+
+    <section class="slide" data-name="Ментор">
+        <div class="content">
+            <h2>Мої Ментори</h2>
+            <p>Величезну роль у моєму навчанні відіграли ці викладачі. Їхня підтримка, знання та здатність пояснювати
+                складні концепції простими словами допомогли мені пройти шлях в академії GoIteens. Я щиро вдячний за
+                їхній внесок у мій професійний розвиток.</p>
+
+            <div class="mentors-grid">
+                <div class="mentor-column">
+                    <div class="mentor-photo-card">
+                        <img src="images/soft.jpg" alt="Фото ментора 1" class="mentor-img">
+                        <h3>Іван Татаренков</h3>
+                        <p>Викладач софт-скілів який дозволив мені подивитись на різні речі під новим кутом,та давав
+                            багато дуже цінних порад по життю </p>
+                    </div>
+                </div>
+
+                <div class="vertical-divider"></div>
+                <div class="mentor-column">
+                    <div class="mentor-photo-card">
+                        <img src="images/tech.jpg" alt="Фото ментора 2" class="mentor-img">
+                        <h3>Олександр Абрамович </h3>
+                        <p>Викладач з тех-скілів який ознайомив мене з базою Flask, FasAPI, Django. Викладач з яким ми
+                            навчались з посмішкою </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide" data-name="Академія">
+        <div class="content">
+            <h2>Академія GoITeens</h2>
+            <p>Навчання в GoITeens — це інтенсивний та захоплюючий досвід. Академія створює середовище, де ти постійно
+                практикуєшся, працюєш у команді над реальними проєктами та отримуєш актуальні знання від експертів
+                галузі. Гнучкий графік, менторська підтримка та сильне ком'юніті студентів роблять цей процес
+                максимально ефективним. GoIT дав мені не лише технічні навички, а й впевненість у власних силах.</p>
+        </div>
+    </section>
+
+    <section class="slide" data-name="Проєкт">
+        <div class="content">
+            <h2>Мій Проєкт: "BMI Health-cabinet"</h2>
+            <p>Головна ідея проєкту — створити універсальний інструмент для розрахунку <strong>Індексу Маси Тіла
+                (ІМТ)</strong>, реалізувавши його бекенд одразу на трьох популярних Python-фреймворках: <strong>Flask,
+                FastAPI та Django</strong>. Це дозволило мені порівняти їхні підходи, переваги та недоліки на практиці.
+            </p>
+
+        </div>
+    </section>
+    </section>
+
+    <section class="slide" data-name="Технології">
+        <div class="content">
+            <h2>Аналіз Технологій</h2>
+            <p>Проєкт був реалізований одразу на трьох Python-фреймворках для порівняння їхніх можливостей, переваг та
+                недоліків у контексті мого завдання.</p>
+
+            <div class="tech-columns-container">
+
+                <div class="tech-column">
+
+                    <h3>Flask</h3>
+                    <div class="tech-pros">
+                        <h4>Плюси (де допомагав):</h4>
+                        <ul>
+                            <li><strong>Мінімалізм:</strong> Ідеально для швидкого старту. Немає нічого зайвого, що
+                                дозволило швидко запустити базовий розрахунок ІМТ.
+                            </li>
+                            <li><strong>Гнучкість:</strong> Повний контроль над тим, які компоненти (наприклад, ORM) я
+                                хочу додати.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tech-cons">
+                        <h4>Мінуси (де заважав):</h4>
+                        <ul>
+                            <li><strong>"Батарейки не включені":</strong> Для профілів користувачів та історії мені
+                                довелося б вручну налаштовувати ORM (як SQLAlchemy) та систему автентифікації.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-column">
+
+                    <h3>FastAPI</h3>
+                    <div class="tech-pros">
+                        <h4>Плюси (де допомагав):</h4>
+                        <ul>
+                            <li><strong>Швидкість (async):</strong> Найкращий вибір для асинхронних запитів, наприклад,
+                                для миттєвої видачі порад.
+                            </li>
+                            <li><strong>Авто-документація:</strong> Вбудований Swagger/OpenAPI — це неймовірно.
+                                Економить години на тестуванні та описі API.
+                            </li>
+                            <li><strong>Валідація Pydantic:</strong> Чітка валідація вхідних даних (зріст, вага) прямо
+                                "з коробки".
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tech-cons">
+                        <h4>Мінуси (де заважав):</h4>
+                        <ul>
+                            <li><strong>Складність Async:</strong> Потрібно було слідкувати за асинхронним кодом, що
+                                трохи складніше для простого CRUD.
+                            </li>
+                            <li><strong>Екосистема:</strong> Молодший за інших, тому менше готових плагінів, ніж у
+                                Django.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-column">
+
+                    <h3>Django</h3>
+                    <div class="tech-pros">
+                        <h4>Плюси (де допомагав):</h4>
+                        <ul>
+                            <li><strong>"Все включено":</strong> Вбудована адмін-панель, ORM та система автентифікації —
+                                ідеально для профілів, історії вимірювань та плейлістів порад.
+                            </li>
+                            <li><strong>Безпека:</strong> Багато вбудованих засобів захисту (CSRF, XSS), про які не
+                                потрібно думати.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tech-cons">
+                        <h4>Мінуси (де заважав):</h4>
+                        <ul>
+                            <li><strong>Монолітність:</strong> Надто "важкий" для простого розрахунку ІМТ. Його
+                                потужність була надлишковою для мікросервісів.
+                            </li>
+                            <li><strong>Менша гнучкість:</strong> "The Django way" — іноді доводиться робити речі так,
+                                як хоче фреймворк.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+        <section class="slide" data-name="До сайту">
+            <div class="content">
+                <h2>Прошу до уваги!</h2>
+                <p>Дякую за ваш час. Тепер я запрошую вас ознайомитись із самим проєктом —<br> "Health Cabinet" у дії.</p>
+
+                <a href=" https://health-cabinet-dc62199ba9cf.herokuapp.com/" class="cta-button-new" target="_blank" rel="noopener noreferrer">
+                    <span>Перейти до сайту</span>
+                </a>
+            </div>
+        </section>
+        </div> <script src="script.js"></script>
+</body>
+</html>
+</div>
+<script src="script.js"></script>
+
+
+</body>
+</html>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
